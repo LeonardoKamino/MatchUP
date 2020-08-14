@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block headlinks%}
+<link href="/static/frontpages.css" rel="stylesheet">
+{% endblock %}
+{% block title %}
+   : Change Paasword
+{% endblock %}
+
+{% block main %}
+    <form action="/changepass" method="post">
+        <div class="form-group">
+            <input class="form-control" name="oldpassword" placeholder="Old Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="New Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Confirm New Password" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Change Password</button>
+    </form>
+{% endblock %}

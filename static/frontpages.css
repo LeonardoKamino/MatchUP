@@ -1,0 +1,33 @@
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+body
+{
+    background-image: linear-gradient( #662d91, #800080);
+    color: blanchedalmond;
+}
+
+#logo
+{
+    padding: 1vh 0 0 0 ;
+    width:250px;
+    margin: auto;   
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 3vh;
+}
+#logo h1
+{
+    display: inline-block; 
+}
+
+.indeximg
+{
+    margin-top: 20px;
+    max-height: 50vh;
+}

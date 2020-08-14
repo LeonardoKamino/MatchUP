@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block headlinks%}
+<link href="/static/profile.css" rel="stylesheet">
+{% endblock %}
+{% block title %}
+    : Profile
+{% endblock %}
+{% block main %}
+    <div class='box'>
+        <img src='/static/profilepics/{{ user[5]}}' class='profile_image' alt='Profile Image'>
+        <h1>{{ user[2]}}<!--first name--> {{ user[3] }}<!--last name--> </h1>
+        <h3>Username: {{ user[1] }}</h3>
+        <br><br><h1>{{ user[2] }}'s Posts</h1>
+        
+            {% for post in posts %}
+                <div class="post">
+                    <img src="/static/postpics/{{ post[8]}}" alt='Post Image' class='post_image'>
+                    <div class='post_text'>
+                        <div class='post_header'>
+                            <h2>{{ post[2] }}</h2>
+                            <p id='location'>{{ post[5] }}<!--city-->, {{ post[4] }}<!--province--></p>
+                        </div>
+                        <p id="description">{{ post[3] }}</p>
+                        <h3>Contacts</h3>
+                        <p>Email: {{ post[6] }} </p>
+                        <p>Telephone: {{ post[7] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block headlinks%}
+<link href="/static/posts.css" rel="stylesheet">
+{% endblock %}
+{% block title %}
+    : Posts
+{% endblock %}
+{% block main %}
+    <div class="options">
+        <form action="/home" method="post" >
+            <div class="form-group">
+                <label for="province">Province</label>
+                <select class = 'form-control' name='province' required="required" size=1    onchange="this.form.submit()">
+                    <option value='' disabled selected>{{ province }}</option>
+                    <option value="AB">Alberta</option>
+                    <option value="BC">British Columbia</option>
+                    <option value="MB">Manitoba</option>
+                    <option value="NB">New Brunswick</option>
+                    <option value="NL">Newfoundland and Labrador</option>
+                    <option value="NS">Nova Scotia</option>
+                    <option value="ON">Ontario</option>
+                    <option value="PE">Prince Edward Island</option>
+                    <option value="QC">Quebec</option>
+                    <option value="SK">Saskatchewan</option>
+                    <option value="NT">Northwest Territories</option>
+                    <option value="NU">Nunavut</option>
+                    <option value="YT">Yukon</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    {% if not posts %}
+        <h1>No Posts Available</h1>
+    {% endif %}
+    {% for post in posts %}
+        <div class='post'>
+            <img src="/static/postpics/{{ post[8]}}" alt='Post Image' class='post_image'>
+            <div class='post_text'>
+                <div class='post_header'>
+                    <h2>{{ post[1] }}</h2>
+                    <form action='/getprofile' method="post" >
+                        <input name="creator_username" type="hidden" value="{{ post[9] }}">
+                        <button class="creatorlink" type="submit" ><p>Creator:{{ post[9] }}</p></button>       
+                    </form>
+                    <p id='location'><br>{{ post[6] }}<!--city-->, {{ post[7] }}<!--province--></p>
+                </div>
+                <p id="description">{{ post[2] }}</p>
+                <h3>Contacts</h3>
+                <p>Email: {{ post[4] }} </p>
+                <p>Telephone: {{ post[5] }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

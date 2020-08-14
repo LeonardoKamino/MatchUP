@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block headlinks%}
+<link href="/static/frontpages.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block main %}
+    <h1>Select Your Province</h1>
+    <form action="/home" method="post">
+        <div class="form-group">
+            <select class = 'form-control' name='province' required="required" onchange="this.form.submit()">
+                <option value='' disabled selected>Province</option>
+                <option value="AB">Alberta</option>
+                <option value="BC">British Columbia</option>
+                <option value="MB">Manitoba</option>
+                <option value="NB">New Brunswick</option>
+                <option value="NL">Newfoundland and Labrador</option>
+                <option value="NS">Nova Scotia</option>
+                <option value="ON">Ontario</option>
+                <option value="PE">Prince Edward Island</option>
+                <option value="QC">Quebec</option>
+                <option value="SK">Saskatchewan</option>
+                <option value="NT">Northwest Territories</option>
+                <option value="NU">Nunavut</option>
+                <option value="YT">Yukon</option>
+            </select>
+        </div>
+    </form>
+{% endblock %}

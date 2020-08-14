@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block headlinks%}
+<link href="/static/createpost.css" rel="stylesheet">
+<script type="text/javascript" src="/static/scripts/forms.js"></script>
+{% endblock %}
+{% block title %}
+    : Create Post
+{% endblock %}
+
+{% block main %}
+    <div class='box'>
+        <h1>Create Post</h1>
+        <form action="/create" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="title">Title*</label>
+                    <input type="text" class="form-control" name='title' placeholder="Title*" required="required">
+                </div>
+                <div class="form-group col">
+                    <label for="category">Category*</label>
+                    <select class = 'form-control' name='category' required="required"> 
+                        <option value='' disabled selected>Category*</option>
+                        <option value="Games">Games</option>
+                        <option value="Leisure">Leisure</option>
+                        <option value="Outdoors">Outdoors</option>
+                        <option value="Socializing">Socializing</option>
+                        <option value="Sport">Sports</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Volunteering">Volunteering</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description*</label>
+                <textarea class="form-control" name='description' placeholder="Description*" rows="3" required="required"></textarea>
+            </div>
+            <label>Location*</label>
+            <div class="form-row">
+                <div class="form-group col">
+                    <select class = 'form-control' name='province' required="required">
+                        <option value='' disabled selected>Province</option>
+                        <option value="AB">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NL">Newfoundland and Labrador</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="NT">Northwest Territories</option>
+                        <option value="NU">Nunavut</option>
+                        <option value="YT">Yukon</option>
+                    </select>
+                </div>
+                <div class="form-group col">
+                    <input type="text" class="form-control" name='city' placeholder="City*" required="required" >
+                </div>
+            </div> 
+            <label>Contacts</label>
+            <div class="form-row">
+                <div class="form-group col">
+                  <input type="email" class="form-control" name='email' placeholder="Email*" required="required" >
+                </div>
+                <div class="form-group col">
+                  <input type="text" class="form-control" name='phone' placeholder="Telephone" onkeypress="return isNumberKey(event)"/>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="file">Upload Photo (PNG, JPG)</label><br>
+                <input type="file" name='file'>
+            </div>
+            <button class="btn btn-primary" type="submit" value="upload">Create Post</button>       
+        </form>
+    </div>
+
+{% endblock %}

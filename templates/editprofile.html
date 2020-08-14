@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block headlinks%}
+<link href="/static/frontpages.css" rel="stylesheet">
+{% endblock %}
+{% block title %}
+    : Edit Profile
+{% endblock %}
+
+{% block main %}
+    <div class="register_box">
+        <h1>Edit your account:</h1>
+        <form enctype="multipart/form-data" action="/editprofile" method="post">
+            <label for='username'>Change Username</label>
+            <div class="form-group">
+                <input autocomplete="off" value="{{ user[1] }}" autofocus class="form-control" name="username" id = "username" placeholder="Username" type="text">
+                <p id="alert"></p>
+            </div>
+            <label>Change Name</label>
+            <div class="form-group">
+                <input autocomplete="off" value="{{ user[2] }}" autofocus class="form-control" name="first_name" placeholder="First name" type="text">
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" value="{{ user[3] }}"  autofocus class="form-control" name="last_name" placeholder="Last Name" type="text">
+            </div>
+            <div class="form-group">
+                <label for="image">Update Profile Picture (PNG, JPG)</label><br>
+                <input type="file" name='file'>
+            </div>
+            <button class="btn btn-secundary" type="submit" id="submit_btn" value="upload">Update</button>
+        </form>
+        <script type="text/javascript" src="/static/scripts/forms.js"></script>
+
+    </div>
+{% endblock %}
